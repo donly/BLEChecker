@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">BLE Checker</string>
+    <string name="dummy_button">Copy Address</string>
+    <string name="dummy_content">Bluetooth\nDetection</string>
+	<string name="ble_not_supported">BLE NOT Supported</string>
+	<string name="ble_supported">BLE Supported</string>
+	<string name="copy_success">Copy success</string>
+</resources>
