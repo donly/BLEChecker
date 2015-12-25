@@ -3,6 +3,7 @@ package com.magicalboy.btd;
 import android.annotation.SuppressLint;
 import android.annotation.TargetApi;
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.bluetooth.BluetoothAdapter;
 import android.content.Context;
 import android.content.Intent;
@@ -11,6 +12,8 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -180,7 +183,7 @@ public class BTDActivity extends Activity implements OnClickListener {
 
 	@Override
 	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-		Log.i("BTD", "requestCode£½" + requestCode + ", resultCode=" + resultCode);
+		Log.i("BTD", "requestCodeï¿½ï¿½" + requestCode + ", resultCode=" + resultCode);
 		
 		if (requestCode == REQUEST_ENABLE_BT) {
 			if (resultCode == RESULT_OK) {
@@ -188,7 +191,8 @@ public class BTDActivity extends Activity implements OnClickListener {
 				checkBLE();
 			}
 			else {
-				mContentView.setText("OPEN BLUETOOTH\nFAILD.");
+				mContentView.setText("OPEN BLUETOOTH\nFAILED.");
+				mContentView.setBackgroundColor(0xfff00000);
 			}
 		}
 	};
@@ -243,5 +247,46 @@ public class BTDActivity extends Activity implements OnClickListener {
 			
 			Toast.makeText(this, R.string.copy_success, Toast.LENGTH_SHORT).show();
 		}
+	}
+
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+		// Inflate the menu; this adds items to the action bar if it is present.
+		getMenuInflater().inflate(R.menu.main, menu);
+		return true;
+	}
+
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+		// Handle action bar item clicks here. The action bar will
+		// automatically handle clicks on the Home/Up button, so long
+		// as you specify a parent activity in AndroidManifest.xml.
+		int id = item.getItemId();
+
+		//noinspection SimplifiableIfStatement
+		if (id == R.id.action_about) {
+			showAbout();
+			return true;
+		}
+
+		return super.onOptionsItemSelected(item);
+	}
+
+	protected void showAbout() {
+		// Inflate the about message contents
+		View messageView = getLayoutInflater().inflate(R.layout.about, null, false);
+
+		// When linking text, force to always use default color. This works
+		// around a pressed color state bug.
+		TextView textView = (TextView) messageView.findViewById(R.id.about_credits);
+		int defaultColor = textView.getTextColors().getDefaultColor();
+		textView.setTextColor(defaultColor);
+
+		AlertDialog.Builder builder = new AlertDialog.Builder(this);
+		builder.setIcon(R.drawable.ic_launcher);
+		builder.setTitle(getString(R.string.app_name) + " v1.0.2");
+		builder.setView(messageView);
+		builder.create();
+		builder.show();
 	}
 }
