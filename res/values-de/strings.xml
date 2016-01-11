@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="about_button">Über</string>
+    <string name="action_about">Über</string>
+    <string name="action_settings">Einstellungen</string>
+    <string name="app_descrip">BLE Checker prüft, ob BLE von Deinem Gerät unterstützt wird.</string>
+    <string name="app_name">BLE Checker</string>
+    <string name="ble_not_supported">BLE nicht unterstützt</string>
+    <string name="ble_supported">BLE unterstützt</string>
+    <string name="copy_success">Kopieren erfolgreich</string>
+    <string name="dummy_button">Kopiere BT-Adresse</string>
+    <string name="dummy_content">"Bluetooth-Erkennung"</string>
+    <string name="app_credits"><![CDATA[Donly Chan\n\nEmail:donly@magicalboy.com\nGithub:https://github.com/donly/BLEChecker]]></string>
+</resources>
