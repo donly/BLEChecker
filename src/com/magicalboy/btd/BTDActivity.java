@@ -17,6 +17,8 @@ import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.view.Window;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -64,12 +66,14 @@ public class BTDActivity extends Activity implements OnClickListener {
 	
 	private TextView mContentView;
 	BluetoothAdapter mBluetoothAdapter;
-	
+	private Button aboutButton;
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setContentView(R.layout.activity_btd);
+
 
 		final View controlsView = findViewById(R.id.fullscreen_content_controls);
 		final View contentView = findViewById(R.id.fullscreen_content);
@@ -155,9 +159,13 @@ public class BTDActivity extends Activity implements OnClickListener {
 		// operations to prevent the jarring behavior of controls going away
 		// while interacting with the UI.
 		findViewById(R.id.dummy_button).setOnTouchListener(
-				mDelayHideTouchListener);
+                mDelayHideTouchListener);
 		
 		findViewById(R.id.dummy_button).setOnClickListener(this);
+
+        aboutButton = (Button)findViewById(R.id.about_button);
+        aboutButton.setOnTouchListener(mDelayHideTouchListener);
+        aboutButton.setOnClickListener(this);
 	}
 
 	private void checkBLE() {
@@ -247,6 +255,9 @@ public class BTDActivity extends Activity implements OnClickListener {
 			
 			Toast.makeText(this, R.string.copy_success, Toast.LENGTH_SHORT).show();
 		}
+        else if (view == aboutButton) {
+            showAbout();
+        }
 	}
 
 	@Override
