@@ -10,6 +10,6 @@
     <string name="copy_success">Kopieren erfolgreich</string>
     <string name="dummy_button">Kopiere BT-Adresse</string>
     <string name="dummy_content">"Bluetooth-Erkennung"</string>
-    <string name="app_credits"><![CDATA[Donly Chan [donly@magicalboy.com]\nGoogle Motonke [Charlotte.Motonke@gmail.com]\n\nGithub:https://github.com/donly/BLEChecker]]></string>
+    <string name="app_credits"><![CDATA[Donly Chan (donly@magicalboy.com)\nChris (Charlotte.Motonke@gmail.com)\n\nGithub:https://github.com/donly/BLEChecker]]></string>
     <string name="bluetooth_open_failed">Bluetooth nicht aktiviert bzw. verfügbar</string>
 </resources>
