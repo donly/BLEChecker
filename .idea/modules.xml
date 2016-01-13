@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/BTD.iml" filepath="$PROJECT_DIR$/.idea/BTD.iml" />
+      <module fileurl="file://$PROJECT_DIR$/BLEChecker.iml" filepath="$PROJECT_DIR$/BLEChecker.iml" />
     </modules>
   </component>
 </project>

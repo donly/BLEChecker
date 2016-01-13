@@ -4,11 +4,12 @@
     <string name="about_button">關於</string>
     <string name="action_about">關於</string>
     <string name="action_settings">設置</string>
-    <string name="app_credits"><![CDATA[Donly Chan\n\nEmail:donly@magicalboy.com\nGithub:https://github.com/donly/BLEChecker]]></string>
+    <string name="app_credits"><![CDATA[Donly Chan [donly@magicalboy.com]\nGoogle Motonke [Charlotte.Motonke@gmail.com]\n\nGithub:https://github.com/donly/BLEChecker]]></string>
     <string name="app_descrip">BLE 檢查器幫助您檢測您的設備是否支持藍牙低功率功能，以及查看藍牙版本。</string>
     <string name="ble_not_supported">不支持 BLE </string>
     <string name="ble_supported">支持 BLE </string>
     <string name="copy_success">已複製</string>
     <string name="dummy_button">複製地址</string>
     <string name="dummy_content">藍牙檢測</string>
+    <string name="bluetooth_open_failed">打開藍牙失敗</string>
 </resources>

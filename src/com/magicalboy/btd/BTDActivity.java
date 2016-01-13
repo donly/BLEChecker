@@ -7,6 +7,7 @@ import android.app.AlertDialog;
 import android.bluetooth.BluetoothAdapter;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Bundle;
@@ -199,7 +200,7 @@ public class BTDActivity extends Activity implements OnClickListener {
 				checkBLE();
 			}
 			else {
-				mContentView.setText("OPEN BLUETOOTH\nFAILED.");
+				mContentView.setText(R.string.bluetooth_open_failed);
 				mContentView.setBackgroundColor(0xfff00000);
 			}
 		}
@@ -295,9 +296,22 @@ public class BTDActivity extends Activity implements OnClickListener {
 
 		AlertDialog.Builder builder = new AlertDialog.Builder(this);
 		builder.setIcon(R.drawable.ic_launcher);
-		builder.setTitle(getString(R.string.app_name) + " v1.0.2");
+		builder.setTitle(getString(R.string.app_name) + fullVersion());
 		builder.setView(messageView);
 		builder.create();
 		builder.show();
+	}
+
+	private String fullVersion() {
+		PackageInfo pInfo = null;
+		String version = "";
+		try {
+			pInfo = getPackageManager().getPackageInfo(getPackageName(), 0);
+			version = " v" + pInfo.versionName;
+		} catch (PackageManager.NameNotFoundException e) {
+			e.printStackTrace();
+		}
+
+		return version;
 	}
 }
